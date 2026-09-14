@@ -124,3 +124,24 @@ Instalar executando o seguinte comando: pip install bcrypt
 pip freeze > requirements.txt
 
 # O servidor FastAPI está oficialmente vivo, e a correr na porta 8000
+
+# Ligar ao cliente React
+Abra dois terminais, um em cada repositório.
+
+No servidor:
+```text
+cd ProjetoFinal-TaskManager-Server
+venv\Scripts\activate
+uvicorn main:app --reload
+```
+
+No cliente:
+```text
+cd ProjetoFinal-TaskManager-Client\React\primeira_pagina
+npm install
+npm run dev
+```
+
+O cliente Vite abre normalmente em `http://localhost:5173` e comunica com `http://127.0.0.1:8000`.
+As rotas disponíveis são `POST /auth/register`, `POST /auth/login`, `GET/POST /tasks` e `PATCH/DELETE /tasks/{task_id}`.
+Os pedidos de autenticação e tarefas usam JSON. As tarefas são associadas ao `user_id` devolvido pelo login; nesta primeira integração ainda não existe token/sessão JWT.
