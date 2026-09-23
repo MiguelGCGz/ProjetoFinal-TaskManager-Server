@@ -89,12 +89,12 @@ Garante versões exatas: O ficheiro costuma especificar as versões exatas de ca
 Padronização: É a forma universal no ecossistema Python de partilhar os requisitos necessários para correr um projeto.Se executares este comando com o teu ambiente virtual (.venv) ativo, todas as bibliotecas especificadas serão instaladas de forma isolada dentro dele.
 
 # Iniciar o Servidor
-1. Abre o terminal na mesma pasta onde guardaste o ficheiro main.py (garantindo que o teu ambiente virtual .venv está ativo) e executa o seguinte comando:
+Abre o terminal na mesma pasta onde guardaste o ficheiro main.py (garantindo que o teu ambiente virtual .venv está ativo) e executa o seguinte comando:
 #  uvicorn main:app --reload
 
 main:app: Diz ao Uvicorn para procurar o ficheiro main.py e a instância app = FastAPI().--reload: Faz com que o servidor reinicie automaticamente sempre que alterares e guardares o código.Se tudo estiver correto, verás uma mensagem no terminal a dizer que o servidor está a correr em http://127.0.0.1:8000.
 
-2. Pode validar o funcionamento de duas formas diretamente no seu browser:
+Pode validar o funcionamento de duas formas diretamente no seu browser:
 - Teste simples: Abre o navegador e acede a http://127.0.0. 
 Deverás ver a resposta JSON: {"mensagem": "API a funcionar e CORS configurado!"}.
 
@@ -129,18 +129,17 @@ pip freeze > requirements.txt
 Abra dois terminais, um em cada repositório.
 
 No servidor:
-```text
+
 cd ProjetoFinal-TaskManager-Server
 venv\Scripts\activate
 uvicorn main:app --reload
-```
+
 
 No cliente:
-```text
+
 cd ProjetoFinal-TaskManager-Client\React\primeira_pagina
 npm install
 npm run dev
-```
 
 O cliente Vite abre normalmente em `http://localhost:5173` e comunica com `http://127.0.0.1:8000`.
 As rotas disponíveis são `POST /auth/register`, `POST /auth/login`, `GET/POST /tasks` e `PATCH/DELETE /tasks/{task_id}`.
