@@ -1,0 +1,21 @@
+# Ambiente Virtual (NUNCA enviar para o repositório)
+.venv/
+venv/
+ENV/
+
+# Base de Dados Local (Evita enviar os teus dados de teste locais)
+*.db
+*.sqlite3
+
+# Ficheiros compilados pelo Python
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ficheiros de configuração do VS Code ou outros editores
+.vscode/
+.idea/
+
+# Ficheiros de variáveis de ambiente/segredo (se usares no futuro)
+.env
