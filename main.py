@@ -137,12 +137,17 @@ def register_user(payload: AuthPayload, db: Session = Depends(get_db)):
 @app.post("/auth/login")
 def login_user(payload: AuthPayload, db: Session = Depends(get_db)):
     user = db.query(UserDB).filter(UserDB.email == payload.email).first()
-    
-    # Verifica se o utilizador existe e se a password em texto limpo bate com o hash
-    if not user or not pwd_context.verify(payload.password, user.hashed_password):
+
+    if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED, 
-            detail="Email ou palavra-passe incorretos."
+            detail="Email Incorreto"
+        )
+
+    if not pwd_context.verify(payload.password, user.hashed_password):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Password Incorreta"
         )
         
     return {"id": user.id, "name": user.name, "email": user.email}
